@@ -8,7 +8,12 @@ require 'poise'
 
 module RcCookbook
   module Resource
+    # A resource which manages runtime configuration files.
     # @since 1.0.0
+    # @example
+    # rc_file '/etc/skel/bashrc' do
+    #   options('http_proxy' => 'http://proxy.corporate.com:80')
+    # end
     class RcFile < Chef::Resource
       include Poise(fused: true)
       provides(:rc_file)
@@ -20,6 +25,8 @@ module RcCookbook
       attribute(:type, equal_to: %w{bash}, default: 'bash')
       attribute('',
         template: true,
+        default_options: {},
+        default_cookbook: 'rc',
         default_source: lazy { "#{type}.erb" })
 
       action(:create) do
