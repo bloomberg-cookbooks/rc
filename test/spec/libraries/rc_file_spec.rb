@@ -18,10 +18,32 @@ describe RcCookbook::Resource::RcFile do
 
     it { is_expected.to render_file('/etc/skel/bashrc').with_content(<<-EOH.chomp) }
 # This file is managed by Chef; all manual changes will be lost!
-http_proxy=http://proxy.corporate.com:80
-https_proxy=http://proxy.corporate.com:443
-ftp_proxy=http://proxy.corporate.com:80
-no_proxy=localhost,127.0.0.1
+http_proxy='http://proxy.corporate.com:80'
+https_proxy='http://proxy.corporate.com:443'
+ftp_proxy='http://proxy.corporate.com:80'
+no_proxy='localhost,127.0.0.1'
+EOH
+  end
+
+  context 'runtime configuration for bat' do
+    recipe do
+      rc_file '/etc/skel/batrc' do
+        type 'bat'
+        options(
+          'http_proxy' => 'http://proxy.corporate.com:80',
+          'https_proxy' => 'http://proxy.corporate.com:443',
+          'ftp_proxy' => 'http://proxy.corporate.com:80',
+          'no_proxy' => 'localhost,127.0.0.1'
+        )
+      end
+    end
+
+    it { is_expected.to render_file('/etc/skel/batrc').with_content(<<-EOH.chomp) }
+@REM This file is managed by Chef; all manual changes will be lost!
+SET http_proxy=http://proxy.corporate.com:80
+SET https_proxy=http://proxy.corporate.com:443
+SET ftp_proxy=http://proxy.corporate.com:80
+SET no_proxy=localhost,127.0.0.1
 EOH
   end
 end

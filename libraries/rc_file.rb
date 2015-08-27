@@ -14,6 +14,11 @@ module RcCookbook
     # rc_file '/etc/skel/bashrc' do
     #   options('http_proxy' => 'http://proxy.corporate.com:80')
     # end
+    #
+    # rc_file File.join(Dir.home, 'curlrc.bat') do
+    #   type 'bat'
+    #   options('http_proxy' => 'http://proxy.corporate.com:80')
+    # end
     class RcFile < Chef::Resource
       include Poise(fused: true)
       provides(:rc_file)
@@ -22,7 +27,7 @@ module RcCookbook
       attribute(:owner, kind_of: String)
       attribute(:group, kind_of: String)
       attribute(:mode, kind_of: String, default: '0640')
-      attribute(:type, equal_to: %w{bash}, default: 'bash')
+      attribute(:type, equal_to: %w{bash bat}, default: 'bash')
       attribute('',
         template: true,
         default_options: {},
