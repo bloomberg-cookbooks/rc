@@ -27,12 +27,25 @@ module RcCookbook
       attribute(:owner, kind_of: String)
       attribute(:group, kind_of: String)
       attribute(:mode, kind_of: String, default: '0640')
-      attribute(:type, equal_to: %w{bash bat}, default: 'bash')
+      attribute(:type, equal_to: %w{bash bat edn yaml json}, default: 'bash')
       attribute('',
         template: true,
         default_options: {},
         default_cookbook: 'rc',
         default_source: lazy { "#{type}.erb" })
+
+      def to_content
+        case type.to_sym
+        when :edn
+          options.to_edn
+        when :yaml
+          options.to_yaml
+        when :json
+          JSON.pretty_generate(options)
+        else
+          content
+        end
+      end
 
       action(:create) do
         notifying_block do
@@ -40,7 +53,7 @@ module RcCookbook
             owner new_resource.owner
             group new_resource.group
             mode new_resource.mode
-            content new_resource.content
+            content new_resource.to_content
           end
         end
       end
