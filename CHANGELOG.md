@@ -4,8 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.3.1] - 2015-10-07
+### Bug Fixes
+- Fixes issues with testing harness and Travis due to TOML gem.
+- Fixes foodcritic failures of linting with templates.
+
 ## [1.3.0] - 2015-10-07
-### Changed
+### Enhancements
 - Adds support for [TOML](https://github.com/toml-lang/toml) configuration format.
 
 [Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.2.0...HEAD
