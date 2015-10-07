@@ -5,6 +5,7 @@
 # Copyright 2015, Bloomberg Finance L.P.
 #
 require 'poise'
+require 'toml'
 
 module RcCookbook
   module Resource
@@ -27,7 +28,7 @@ module RcCookbook
       attribute(:owner, kind_of: String)
       attribute(:group, kind_of: String)
       attribute(:mode, kind_of: String, default: '0640')
-      attribute(:type, equal_to: %w{bash bat edn yaml json}, default: 'bash')
+      attribute(:type, equal_to: %w{bash bat edn yaml json toml}, default: 'bash')
       attribute('',
         template: true,
         default_options: {},
@@ -40,6 +41,8 @@ module RcCookbook
           options.to_edn
         when :yaml
           options.to_yaml
+        when :toml
+          TOML::Generator.new(options).body
         when :json
           JSON.pretty_generate(options)
         else

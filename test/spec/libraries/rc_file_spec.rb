@@ -1,9 +1,32 @@
+require 'spec_helper'
 require 'poise_boiler/spec_helper'
-require 'chefspec/berkshelf'
 require_relative '../../../libraries/rc_file'
 
 describe RcCookbook::Resource::RcFile do
   step_into(:rc_file)
+  context 'runtime configuration for toml' do
+    recipe do
+      rc_file '/etc/confd/confd.toml' do
+        type 'toml'
+        options(
+          'backend' => 'zookeeper',
+          'nodes' => %w{10.0.1.1 10.0.1.2 10.0.1.3},
+          'prefix' => '/production',
+          'interval' => 600,
+          'noop' => false,
+        )
+      end
+    end
+
+    it { is_expected.to render_file('/etc/confd/confd.toml').with_content(<<-EOH.chomp) }
+backend = "zookeeper"
+interval = 600
+nodes = ["10.0.1.1","10.0.1.2","10.0.1.3"]
+noop = false
+prefix = "/production"
+EOH
+  end
+
   context 'runtime configuration for bashrc' do
     recipe do
       rc_file '/etc/skel/bashrc' do
