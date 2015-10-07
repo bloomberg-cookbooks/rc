@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'poise', '~> 2.2'
 gem 'poise-boiler'
+gem 'toml'
 
 group :lint do
   gem 'rubocop'
