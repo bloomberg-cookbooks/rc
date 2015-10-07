@@ -5,7 +5,6 @@
 # Copyright 2015, Bloomberg Finance L.P.
 #
 require 'poise'
-require 'toml'
 
 module RcCookbook
   module Resource
