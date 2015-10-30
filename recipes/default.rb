@@ -6,13 +6,23 @@
 #
 
 if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
+  chef_gem 'edn' do
+    version '~> 1.1'
+    compile_time true
+  end
+
   chef_gem 'toml' do
     version '~> 0.1.2'
     compile_time true
   end
-  require 'toml'
 else
+  chef_gem 'edn' do
+    version '~> 1.1'
+    action :nothing
+  end.action(:install)
+
   chef_gem 'toml' do
+    version '~> 0.1.2'
     action :nothing
   end.action(:install)
 end

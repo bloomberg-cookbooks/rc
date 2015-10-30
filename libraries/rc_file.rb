@@ -37,10 +37,12 @@ module RcCookbook
       def to_content
         case type.to_sym
         when :edn
+          require 'edn'
           options.to_edn
         when :yaml
           options.to_yaml
         when :toml
+          require 'toml'
           TOML::Generator.new(options).body
         when :json
           JSON.pretty_generate(options)

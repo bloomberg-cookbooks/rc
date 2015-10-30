@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 gem 'poise', '~> 2.2'
 gem 'poise-boiler'
 gem 'toml'
+gem 'edn'
 
 group :lint do
   gem 'rubocop'
@@ -31,7 +32,6 @@ end
 
 group :development do
   gem 'awesome_print'
-  gem 'guard'
   gem 'guard-kitchen'
   gem 'guard-rspec'
   gem 'guard-rubocop'
