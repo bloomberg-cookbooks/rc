@@ -4,6 +4,7 @@ gem 'poise-boiler'
 gem 'toml'
 gem 'edn'
 gem 'java-properties'
+gem 'codeclimate-test-reporter', group: :test, require: nil
 
 group :lint do
   gem 'rubocop'

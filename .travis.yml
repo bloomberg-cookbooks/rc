@@ -2,6 +2,9 @@
 language: ruby
 notifications:
   slack: bloomberg-rnd:eHp3Czg42iGzaTgG8sAFeD9v
+addons:
+    code_climate:
+        repo_token: 1185d52262cda67119ad7919a2d2b6bd8089361aa858cd38d4a0bea9ac68a45e
 script: bundle exec rake travis
 rvm:
   - 2.2
