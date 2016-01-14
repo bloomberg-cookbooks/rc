@@ -1,4 +1,9 @@
 # rc-cookbook
+[![Build Status](https://img.shields.io/travis/johnbellone/rc-cookbook.svg)](https://travis-ci.org/johnbellone/rc-cookbook)
+[![Code Quality](https://img.shields.io/codeclimate/github/johnbellone/rc-cookbook.svg)](https://codeclimate.com/github/johnbellone/rc-cookbook)
+[![Cookbook Version](https://img.shields.io/cookbook/v/rc.svg)](https://supermarket.chef.io/cookbooks/rc)
+[![License](https://img.shields.io/badge/license-Apache_2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+
 [Library cookbook][0] which provides a resource for writing
 runtime configuration files.
 

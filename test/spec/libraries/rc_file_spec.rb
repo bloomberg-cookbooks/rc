@@ -27,6 +27,27 @@ prefix = "/production"
 EOH
   end
 
+  context 'runtime configuration for java' do
+    recipe do
+      rc_file '/etc/zookeeper/zookeeper.properties' do
+        type 'java'
+        options(
+          'dataDir' => '/var/opt/zookeeper',
+          'leaderPort' => 3181,
+          clientPort: 2181,
+          electionPort: 2888,
+        )
+      end
+    end
+
+    it { is_expected.to render_file('/etc/zookeeper/zookeeper.properties').with_content(<<-EOH.chomp) }
+dataDir=/var/opt/zookeeper
+leaderPort=3181
+clientPort=2181
+electionPort=2888
+EOH
+  end
+
   context 'runtime configuration for bashrc' do
     recipe do
       rc_file '/etc/skel/bashrc' do

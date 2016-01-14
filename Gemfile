@@ -3,6 +3,7 @@ gem 'poise', '~> 2.2'
 gem 'poise-boiler'
 gem 'toml'
 gem 'edn'
+gem 'java-properties'
 
 group :lint do
   gem 'rubocop'
