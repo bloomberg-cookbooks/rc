@@ -2,7 +2,7 @@
 # Cookbook: rc
 # License: Apache 2.0
 #
-# Copyright 2015, Bloomberg Finance L.P.
+# Copyright 2015-2016, Bloomberg Finance L.P.
 #
 
 if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
