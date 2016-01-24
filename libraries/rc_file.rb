@@ -27,7 +27,7 @@ module RcCookbook
       attribute(:owner, kind_of: String)
       attribute(:group, kind_of: String)
       attribute(:mode, kind_of: String, default: '0640')
-      attribute(:type, equal_to: %w{bash bat edn yaml json toml java}, default: 'bash')
+      attribute(:type, equal_to: %w{bash bat edn yaml json toml java ini}, default: 'bash')
       attribute('',
         template: true,
         default_options: {},
@@ -49,6 +49,19 @@ module RcCookbook
           TOML::Generator.new(options).body
         when :json
           JSON.pretty_generate(options)
+        when :ini
+          require 'iniparse'
+          IniParse.gen do |doc|
+            options.each_pair do |key, value|
+              if value.kind_of?(Hash) # rubocop:disable Style/ClassCheck
+                doc.section(key) do |s|
+                  value.each { |k, v| s.option(k, v) }
+                end
+              else
+                doc.option(key, value)
+              end
+            end
+          end.to_ini
         else
           content
         end

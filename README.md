@@ -13,6 +13,15 @@ which is provided by default is a _bash runtime configuration_ which
 is simply a key-value pair.
 
 ## Basic Usage
+This cookbook supports several different formats for writing out
+runtime configuration files from a [Ruby Hash object](http://docs.ruby-lang.org/en/2.0.0/Hash.html).
+- [EDN](https://github.com/edn-format/edn)
+- [YAML](https://en.wikipedia.org/wiki/YAML)
+- [TOML](https://github.com/toml-lang/toml)
+- [INI](https://en.wikipedia.org/wiki/INI_file)
+- [Java .properties](https://en.wikipedia.org/wiki/.properties)
+- [UNIX][https://en.wikipedia.org/wiki/Environment_variable#Unix] and [Windows][https://en.wikipedia.org/wiki/Environment_variable#DOS.2C_OS.2F2_and_Windows] [environment variables](https://en.wikipedia.org/wiki/Environment_variable)
+- [JSON](https://en.wikipedia.org/wiki/JSON)
 
 ### Writing bashrc skeleton
 Any new types can be added by modifying the resource (adding a type)

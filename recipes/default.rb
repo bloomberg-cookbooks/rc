@@ -20,6 +20,11 @@ if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
     version '~> 0.1'
     compile_time true
   end
+
+  chef_gem 'iniparse' do
+    version '~> 1.4'
+    compile_time true
+  end
 else
   chef_gem 'edn' do
     version '~> 1.1'
@@ -33,6 +38,11 @@ else
 
   chef_gem 'java-properties' do
     version '~> 0.1'
+    action :nothing
+  end.action(:install)
+
+  chef_gem 'iniparse' do
+    version '~> 1.4'
     action :nothing
   end.action(:install)
 end

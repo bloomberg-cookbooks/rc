@@ -48,6 +48,29 @@ electionPort=2888
 EOH
   end
 
+  context 'runtime configuration for ini' do
+    recipe do
+      rc_file '/etc/mumble/mumble.ini' do
+        type 'ini'
+        options(
+          'database' => '/var/lib/mumble.sqlite',
+          'password' => 'letmein',
+          allowping: false,
+          logfile: '/var/log/mumble.log',
+          welcometext: 'Welcome to the server<br/>Enjoy your stay!'
+        )
+      end
+    end
+
+    it { is_expected.to render_file('/etc/mumble/mumble.ini').with_content(<<-EOH.chomp) }
+database = /var/lib/mumble.sqlite
+password = letmein
+allowping = false
+logfile = /var/log/mumble.log
+welcometext = Welcome to the server<br/>Enjoy your stay!
+EOH
+  end
+
   context 'runtime configuration for bashrc' do
     recipe do
       rc_file '/etc/skel/bashrc' do
