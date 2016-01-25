@@ -20,7 +20,7 @@ runtime configuration files from a [Ruby Hash object](http://docs.ruby-lang.org/
 - [TOML](https://github.com/toml-lang/toml)
 - [INI](https://en.wikipedia.org/wiki/INI_file)
 - [Java .properties](https://en.wikipedia.org/wiki/.properties)
-- [UNIX][https://en.wikipedia.org/wiki/Environment_variable#Unix] and [Windows][https://en.wikipedia.org/wiki/Environment_variable#DOS.2C_OS.2F2_and_Windows] [environment variables](https://en.wikipedia.org/wiki/Environment_variable)
+- [UNIX](https://en.wikipedia.org/wiki/Environment_variable#Unix) and [Windows](https://en.wikipedia.org/wiki/Environment_variable#DOS.2C_OS.2F2_and_Windows) [environment variables](https://en.wikipedia.org/wiki/Environment_variable)
 - [JSON](https://en.wikipedia.org/wiki/JSON)
 
 ### Writing bashrc skeleton
