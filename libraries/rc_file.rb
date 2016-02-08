@@ -41,7 +41,7 @@ module RcCookbook
           options.to_edn
         when :yaml
           options.to_yaml
-        when :java
+        when :java, :properties, :java_properties
           require 'java-properties'
           JavaProperties.generate(options)
         when :toml
