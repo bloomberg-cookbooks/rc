@@ -1,16 +1,14 @@
 ---
 language: ruby
+cache: bundler
+sudo: false
 notifications:
   slack: bloomberg-rnd:BvYmxrV9xj902XWTRNrkLNkR
-addons:
-    code_climate:
-        repo_token: 1185d52262cda67119ad7919a2d2b6bd8089361aa858cd38d4a0bea9ac68a45e
 script: bundle exec rake travis
 rvm:
   - 2.2
 branches:
   only:
     - master
-builder_args: --without kitchen_vagrant
 matrix:
   fast_finish: true
