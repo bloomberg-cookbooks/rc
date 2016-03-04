@@ -78,6 +78,17 @@ module RcCookbook
         end
       end
 
+      action(:append_if_missing) do
+        notifying_block do
+          new_resource.options.each_pair do |key, value|
+            append_if_no_line 'append if missing' do
+              path new_resource.path
+              line key + '="' + value + '"'
+            end
+          end
+        end
+      end
+
       action(:delete) do
         notifying_block do
           file new_resource.path do

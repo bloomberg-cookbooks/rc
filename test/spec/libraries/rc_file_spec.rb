@@ -92,6 +92,27 @@ no_proxy="localhost,127.0.0.1"
 EOH
   end
 
+  context 'runtime configuration for bashrc using append_if_missing' do
+    recipe do
+      rc_file '/etc/skel/bashrc' do
+        options(
+          'http_proxy' => 'http://proxy.corporate.com:80',
+          'https_proxy' => 'http://proxy.corporate.com:443',
+          'ftp_proxy' => 'http://proxy.corporate.com:80',
+          'no_proxy' => 'localhost,127.0.0.1'
+        )
+        action :append_if_missing
+      end
+    end
+
+    it { is_expected.to render_file('/etc/skel/bashrc').with_content(<<-EOH.chomp) }
+http_proxy="http://proxy.corporate.com:80"
+https_proxy="http://proxy.corporate.com:443"
+ftp_proxy="http://proxy.corporate.com:80"
+no_proxy="localhost,127.0.0.1"
+EOH
+  end
+
   context 'runtime configuration for json' do
     recipe do
       rc_file '/etc/skel/berkshelf' do
