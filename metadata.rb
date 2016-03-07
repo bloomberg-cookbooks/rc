@@ -14,3 +14,4 @@ supports 'aix'
 supports 'solaris'
 
 depends 'poise', '~> 2.2'
+depends 'line', '~> 0.6.3'
