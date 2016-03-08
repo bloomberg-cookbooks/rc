@@ -1,7 +1,9 @@
 # Change Log
 
-## [1.6.0](https://github.com/johnbellone/rc-cookbook/tree/v1.6.0) (2016-03-07)
+## [v1.6.1](https://github.com/johnbellone/rc-cookbook/tree/v1.6.1) (2016-03-08)
+- Fix template so that bash variables now export.
 
+## [v1.6.0](https://github.com/johnbellone/rc-cookbook/tree/v1.6.0) (2016-03-07)
 [Full Changelog](https://github.com/johnbellone/rc-cookbook/compare/v1.5.2...v1.6.0)
 
 **Merged pull requests:**
