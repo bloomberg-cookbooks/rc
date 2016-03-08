@@ -1,2 +1,2 @@
---default-path test/spec
+--default-path test/unit
 --color

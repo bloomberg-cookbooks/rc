@@ -79,14 +79,12 @@ module RcCookbook
       end
 
       action(:append_if_missing) do
+        fail 'You cannot use append_if_missing on non-bash file types!' unless new_resource.type == 'bash'
         notifying_block do
-          unless new_resource.type == 'bash'
-            raise "You cannot use append_if_missing on non-bash file types!"
-          end
-          new_resource.options.each_pair do |key, value|
+          new_resource.options.each_pair do |k, v|
             append_if_no_line 'append if missing' do
               path new_resource.path
-              line key + '="' + value + '"'
+              line %{export #{k}="#{v}"}
             end
           end
         end
