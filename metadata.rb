@@ -5,6 +5,8 @@ license 'Apache 2.0'
 description 'Library cookbook which provides a resource for writing runtime configuration files.'
 long_description 'Library cookbook which provides a resource for writing runtime configuration files.'
 version '1.6.4'
+source_url 'https://github.com/bloomberg/rc-cookbook' if defined?(:source_url)
+issues_url 'https://github.com/bloomberg/rc-cookbook/issues' if defined?(:source_url)
 
 supports 'ubuntu'
 supports 'centos'
