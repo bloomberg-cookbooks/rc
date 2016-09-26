@@ -40,7 +40,7 @@ module RcCookbook
           require 'edn'
           options.to_edn
         when :yaml
-          options.to_yaml
+          options.to_hash.to_yaml
         when :java, :properties, :java_properties
           require 'java-properties'
           JavaProperties.generate(options)
