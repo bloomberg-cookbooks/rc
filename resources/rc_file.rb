@@ -12,6 +12,8 @@ property :owner, String
 property :group, String
 property :mode, String, default: '0640'
 property :type, String, default: 'bash', equal_to: %w{bash bat edn yaml json toml java ini}
+property :cookbook, String, default: 'rc'
+property :source, String # only for bash/bat types
 property :options, Hash, default: {}
 
 def to_content(type, options)
@@ -51,7 +53,8 @@ action(:create) do
   case new_resource.type.to_sym
   when :bash
     template new_resource.path do
-      source 'bash.erb'
+      source new_resource.source || 'bash.erb'
+      cookbook new_resource.cookbook
       owner new_resource.owner
       group new_resource.group
       mode new_resource.mode
@@ -59,7 +62,8 @@ action(:create) do
     end
   when :bat
     template new_resource.path do
-      source 'bat.erb'
+      source new_resource.source || 'bat.erb'
+      cookbook new_resource.cookbook
       owner new_resource.owner
       group new_resource.group
       mode new_resource.mode
