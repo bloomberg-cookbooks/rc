@@ -58,7 +58,7 @@ action(:create) do
       owner new_resource.owner
       group new_resource.group
       mode new_resource.mode
-      variables('options'=>new_resource.options)
+      variables('options' => new_resource.options)
     end
   when :bat
     template new_resource.path do
@@ -67,7 +67,7 @@ action(:create) do
       owner new_resource.owner
       group new_resource.group
       mode new_resource.mode
-      variables('options'=>new_resource.options)
+      variables('options' => new_resource.options)
     end
   else
     file new_resource.path do
@@ -81,6 +81,7 @@ end
 
 action(:append_if_missing) do
   raise 'You cannot use append_if_missing on non-bash file types!' unless new_resource.type == 'bash'
+
   new_resource.options.each_pair do |k, v|
     append_if_no_line "append #{k} if missing" do
       path new_resource.path
