@@ -1,5 +1,8 @@
 # Change Log
 
+## v2.0.0
+- Overhaul the cookbook to use standard Chef custom resources.
+
 ## [v1.6.4](https://github.com/johnbellone/rc-cookbook/tree/v1.6.1) (2016-03-08)
 - Fix template so that bash variables now export.
 

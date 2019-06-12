@@ -1,12 +1,13 @@
 name 'rc'
-maintainer 'John Bellone'
-maintainer_email 'jbellone@bloomberg.net'
-license 'Apache 2.0'
+maintainer 'Bloomberg Finance L.P.'
+maintainer_email 'chef@bloomberg.net'
+license 'Apache-2.0'
 description 'Library cookbook which provides a resource for writing runtime configuration files.'
 long_description 'Library cookbook which provides a resource for writing runtime configuration files.'
-version '1.6.5'
+version '2.0.0'
 source_url 'https://github.com/bloomberg/rc-cookbook' if defined?(:source_url)
 issues_url 'https://github.com/bloomberg/rc-cookbook/issues' if defined?(:source_url)
+chef_version '>= 12.5.0'
 
 supports 'ubuntu'
 supports 'centos'
@@ -16,5 +17,4 @@ supports 'freebsd'
 supports 'aix'
 supports 'solaris2'
 
-depends 'poise', '~> 2.2'
 depends 'line', '~> 0.6'
