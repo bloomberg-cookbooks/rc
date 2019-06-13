@@ -1,7 +1,4 @@
 # rc-cookbook
-[![Build Status](https://img.shields.io/travis/bloomberg/rc-cookbook.svg)](https://travis-ci.org/bloomberg/rc-cookbook)
-[![Code Quality](https://img.shields.io/codeclimate/github/bloomberg/rc-cookbook.svg)](https://codeclimate.com/github/bloomberg/rc-cookbook)
-[![Test Coverage](https://codeclimate.com/github/bloomberg/rc-cookbook/badges/coverage.svg)](https://codeclimate.com/github/bloomberg/rc-cookbook/coverage)
 [![Cookbook Version](https://img.shields.io/cookbook/v/rc.svg)](https://supermarket.chef.io/cookbooks/rc)
 [![License](https://img.shields.io/badge/license-Apache_2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
@@ -22,14 +19,12 @@ runtime configuration files from a [Ruby Hash object](http://docs.ruby-lang.org/
 - [TOML](https://github.com/toml-lang/toml)
 - [INI](https://en.wikipedia.org/wiki/INI_file)
 - [Java .properties](https://en.wikipedia.org/wiki/.properties)
-- [UNIX](https://en.wikipedia.org/wiki/Environment_variable#Unix) and [Windows](https://en.wikipedia.org/wiki/Environment_variable#DOS.2C_OS.2F2_and_Windows) [environment variables](https://en.wikipedia.org/wiki/Environment_variable)
+- [UNIX](https://en.wikipedia.org/wiki/Environment_variable#Unix) and [Windows](https://en.wikipedia.org/wiki/Environment_variable#DOS.2C_OS.2F2_and_Windows) style [environment variables](https://en.wikipedia.org/wiki/Environment_variable)
 - [JSON](https://en.wikipedia.org/wiki/JSON)
 
 ### Writing bashrc skeleton
-Any new types can be added by modifying the resource (adding a type)
-and writing the appropriate erb template. The example which is used
-for testing purposes is writing out an [bashrc skeleton file][1] which
-manages HTTP proxies.
+The example which is used for testing purposes is writing out an [bashrc skeleton file][1]
+which manages HTTP proxies.
 
 ```ruby
 rc_file '/etc/skel/bashrc' do
@@ -42,6 +37,7 @@ rc_file '/etc/skel/bashrc' do
   )
 end
 ```
+
 ### Writing Berkshelf configuration
 Additionally, this resource supports writing out standard configuration
 file types such as JSON, YAML and EDN. The example below shows to write
@@ -59,6 +55,12 @@ rc_file '/etc/skel/berkshelf.json' do
   )
 end
 ```
+
+### Writing custom configuration
+Any new types can be added by modifying the resource (adding a `type`)
+and writing the appropriate erb template. If you do not wish to send
+a PR or fork this cookbook, you can use 'custom' as your `type`, but
+you *must* pass in your own cookbook and source template.
 
 [0]: http://blog.vialstudios.com/the-environment-cookbook-pattern#thelibrarycookbook
 [1]: http://www.linfo.org/etc_skel.html
