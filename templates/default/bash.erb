@@ -1,5 +1,5 @@
 # This file is managed by Chef; all manual changes will be lost!
-<%- @new_resource.options.map do |k, v| %>
+<%- @options.map do |k, v| %>
 <%- if v.kind_of?(Array) %>
 export <%= [k, "(#{v.map(&:to_s).join(' ')})"].join('=') %>
 <%- elsif v.kind_of?(Hash) %>

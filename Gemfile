@@ -1,11 +1,10 @@
 source 'https://rubygems.org'
-gem 'poise', '~> 2.2'
-gem 'poise-boiler'
 gem 'toml'
 gem 'edn'
 gem 'java-properties'
 gem 'iniparse'
 gem 'codeclimate-test-reporter', group: :test, require: nil
+gem 'test-kitchen'
 
 group :lint do
   gem 'rubocop'
