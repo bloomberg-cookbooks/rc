@@ -12,21 +12,15 @@ AllCops:
     - 'test/**/*'
     - 'bin/**'
     - 'vendor/**/*'
-AlignParameters:
+    - 'airlift/**/*'
+    - 'kitchen-zone/**/*'
+Layout/LineLength:
   Enabled: false
-ClassLength:
+Layout/ParameterAlignment:
   Enabled: false
-CyclomaticComplexity:
+Layout/SpaceBeforeFirstArg:
   Enabled: false
-Documentation:
-  Enabled: false
-Encoding:
-  Enabled: false
-Layout/IndentationWidth:
-  Enabled: false
-LineLength:
-  Enabled: false
-MethodLength:
+Lint/SendWithMixinArgument:
   Enabled: false
 Metrics/AbcSize:
   Enabled: false
@@ -36,17 +30,25 @@ Naming/FileName:
   Enabled: false
 Naming/HeredocDelimiterNaming:
   Enabled: false
-PerceivedComplexity:
+Metrics/ClassLength:
   Enabled: false
-SpaceBeforeFirstArg:
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
   Enabled: false
 Style/ClassAndModuleChildren:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/Encoding:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/GuardClause:
   Enabled: false
-Style/PercentLiteralDelimiters:
-  Enabled: false
 Style/ModuleFunction:
+  Enabled: false
+Style/PercentLiteralDelimiters:
   Enabled: false
