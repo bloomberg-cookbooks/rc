@@ -1,5 +1,8 @@
 # Change Log
 
+## v3.0.0
+- Update to use the newer `line` cookbook.
+
 ## v2.0.0
 - Overhaul the cookbook to use standard Chef custom resources.
 
