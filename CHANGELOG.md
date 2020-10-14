@@ -1,5 +1,8 @@
 # Change Log
 
+## v3.0.1
+- add provides method for chef 16
+
 ## v3.0.0
 - Update to use the newer `line` cookbook.
 
