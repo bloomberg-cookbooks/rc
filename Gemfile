@@ -8,7 +8,7 @@ gem 'test-kitchen'
 gem 'gherkin', '~> 5.1'
 
 group :lint do
-  gem 'rubocop'
+  gem 'rubocop', '~> 0.93.1'
   gem 'foodcritic'
 end
 
