@@ -5,9 +5,10 @@ gem 'java-properties'
 gem 'iniparse'
 gem 'codeclimate-test-reporter', group: :test, require: nil
 gem 'test-kitchen'
+gem 'gherkin', '~> 5.1'
 
 group :lint do
-  gem 'rubocop'
+  gem 'rubocop', '~> 0.93.1'
   gem 'foodcritic'
 end
 

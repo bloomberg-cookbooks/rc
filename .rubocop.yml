@@ -14,7 +14,7 @@ AllCops:
     - 'vendor/**/*'
     - 'airlift/**/*'
     - 'kitchen-zone/**/*'
-Layout/LineLength:
+Metrics/LineLength:
   Enabled: false
 Layout/ParameterAlignment:
   Enabled: false

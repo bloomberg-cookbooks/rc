@@ -6,6 +6,7 @@
 #
 
 resource_name 'rc_file'
+provides 'rc_file'
 
 property :path, String, name_property: true
 property :owner, String
